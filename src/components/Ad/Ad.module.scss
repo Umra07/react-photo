@@ -1,0 +1,31 @@
+.adHeading {
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 72px;
+  color: #fff;
+  text-decoration: underline;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.015em;
+  margin-bottom: 23px;
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.adDescr {
+  max-width: 336px;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 22px;
+  line-height: 29px;
+}
+
+.ad {
+  background: linear-gradient(180deg, #FF4646 0%, #675656 100%);
+  padding: 54px 0 34px;
+  max-width: 1100px;
+  margin: 0 auto;
+}

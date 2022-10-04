@@ -1,0 +1,8 @@
+.artistsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 66px;
+  grid-row-gap: 24px;
+  padding: 0 22px 22px; 
+}

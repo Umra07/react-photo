@@ -1,0 +1,24 @@
+.galleryButton {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 50px;
+  color: #675656;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 11px;
+  letter-spacing: -0.015em;
+  background: #fff;
+  outline: 1px solid #675656;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  &:hover {
+    background: #FF4646;
+    color: #fff;
+    outline: none;
+  }
+  &:active {
+    background: #c33636;
+  }
+}
