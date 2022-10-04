@@ -5,9 +5,9 @@ import Header from './components/Header';
 import Search from './components/UI/Search';
 import Gallery from './components/Gallery';
 import UsersList from './components/UsersList';
-import ModalImage from './components/UI/ModalImage';
 
 function App() {
+
 
   return (
     <div className="App">

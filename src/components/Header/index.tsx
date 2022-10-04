@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from './Header.module.scss';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <div className={classes.header}>
       <header>
-        <div className={classes.logo}>
+        <a href='#' className={classes.logo}>
           <svg
             width="19"
             height="19"
@@ -20,20 +20,20 @@ const Header = () => {
             />
           </svg>
           <h2>Gallery</h2>
-        </div>
+        </a>
         <nav>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <a className={classes.link} href="#">Home</a>
             </li>
             <li>
-              <a href="#">Features</a>
+              <a className={classes.link} href="#">Features</a>
             </li>
             <li>
-              <a href="#">Community</a>
+              <a className={classes.link} href="#">Community</a>
             </li>
             <li>
-              <a href="#">Support</a>
+              <a className={classes.link} href="#">Support</a>
             </li>
           </ul>
         </nav>

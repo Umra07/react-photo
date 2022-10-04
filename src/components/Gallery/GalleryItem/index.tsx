@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
-import ModalImage from '../../UI/ModalImage';
 import classes from './GalleryItem.module.scss';
 
-const GalleryItem = ({ id, avatar, imgURL, likes, date, name, username }) => {
+interface PhotoProps {
+  id: number;
+  avatar: string;
+  imgURL: string;
+  likes: number;
+  date: string;
+  name: string;
+  username: string;
+  showModal: (img: string) => void;
+}
+
+const GalleryItem: React.FC<PhotoProps> = ({ id, avatar, imgURL, likes, date, name, username, showModal }) => {
+
+  
   const [numOfLikes, setNumOfLikes] = useState(likes);
 
   const likePhoto = () => {
@@ -15,15 +27,18 @@ const GalleryItem = ({ id, avatar, imgURL, likes, date, name, username }) => {
 
   const price = Math.round(Math.random() * 31);
 
+  
+
   return (
+    <>
     <li className={classes.photoBlock}>
-      <div className={classes.img_block}>
-        <img className={classes.img} src={imgURL} alt="Random" />
+      <div onClick={() => showModal(imgURL)} className={classes.img_block}>
+        <img className={classes.img} src={imgURL} alt="Unsplash" />
         <div className={classes.overlay}>
           <div className={classes.overlay_info}>
             <b>{`Price: ${price}$`}</b>
             <b>{'Upload date: ' + date}</b>
-            <p>Description</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
           </div>
         </div>
       </div>
@@ -32,7 +47,7 @@ const GalleryItem = ({ id, avatar, imgURL, likes, date, name, username }) => {
           <img src={avatar} alt="Author avatar" />
           <div className={classes.name}>
             <b>{name}</b>
-            <small>{`@${username}`}</small>
+            <small>{username && `@${username}`}</small>
           </div>
         </div>
         <div className={classes.likes}>
@@ -56,6 +71,8 @@ const GalleryItem = ({ id, avatar, imgURL, likes, date, name, username }) => {
         </div>
       </div>
     </li>
+    </>
+    
   );
 };
 

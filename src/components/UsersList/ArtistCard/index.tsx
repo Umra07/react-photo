@@ -1,8 +1,16 @@
 import React from 'react';
-import { IUser } from '../../../@types/data';
 import classes from './ArtistCard.module.scss';
 
-const ArtistCard: React.FC<IUser> = ({ avatar, bio, name, username, total }) => {
+interface UserProps {
+  avatar: string;
+  bio: string;
+  total: number;
+  name: string;
+  username: string;
+  link: string;
+}
+
+const ArtistCard: React.FC<UserProps> = ({ avatar, bio, name, username, total, link }) => {
   return (
     <li className={classes.card}>
       <div className={classes.cardTop}>
@@ -24,10 +32,10 @@ const ArtistCard: React.FC<IUser> = ({ avatar, bio, name, username, total }) => 
       </div>
       <div className={classes.info}>
         <h3>{name}</h3>
-        <small>{`@${username}`}</small>
+        {username && <small>`@${username}`</small>}
         <p>{bio}</p>
       </div>
-      <button>Learn more</button>
+      <a href={link}>Learn more</a>
     </li>
   );
 };

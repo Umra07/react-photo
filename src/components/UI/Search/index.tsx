@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Search.module.scss';
 
-const Search = () => {
+const Search: React.FC = () => {
   return (
     <div className={classes.search}>
       <div className={classes.searchBlock}>

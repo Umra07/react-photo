@@ -1,8 +1,7 @@
 import React from 'react';
-import Container from '../UI/Container';
 import classes from './Ad.module.scss';
 
-const Ad = () => {
+const Ad: React.FC = () => {
   return (
     <div className={classes.ad}>
       <h2 className={classes.adHeading}>START YOUR FREE 1 MONTH TRIAL NOW</h2>
