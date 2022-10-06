@@ -6,6 +6,9 @@ const Header: React.FC = () => {
     <div className={classes.header}>
       <header>
         <a href='#' className={classes.logo}>
+        <div className={classes.burger}>
+          <div />
+        </div>
           <svg
             width="19"
             height="19"
@@ -20,6 +23,7 @@ const Header: React.FC = () => {
             />
           </svg>
           <h2>Gallery</h2>
+          
         </a>
         <nav>
           <ul>

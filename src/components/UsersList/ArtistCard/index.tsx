@@ -32,7 +32,7 @@ const ArtistCard: React.FC<UserProps> = ({ avatar, bio, name, username, total, l
       </div>
       <div className={classes.info}>
         <h3>{name}</h3>
-        {username && <small>`@${username}`</small>}
+        {username && <small>{'@' + username}</small>}
         <p>{bio}</p>
       </div>
       <a href={link}>Learn more</a>

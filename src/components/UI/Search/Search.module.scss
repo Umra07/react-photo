@@ -18,6 +18,11 @@
       background: #d83c3c;
     }
   }
+
+  @media (max-width: 375px) {
+    max-width: 290px;
+    margin-bottom: 20px;
+  }
 }
 
 .searchBlock {
@@ -37,6 +42,12 @@
     border: none;
     &:focus {
       outline: none;
+    }
+
+    @media(max-width: 375px) {
+      padding: 5px 0 6px;
+      font-size: 11px;
+      width: 180px;
     }
   }
 }

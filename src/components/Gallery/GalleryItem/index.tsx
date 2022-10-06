@@ -36,8 +36,10 @@ const GalleryItem: React.FC<PhotoProps> = ({ id, avatar, imgURL, likes, date, na
         <img className={classes.img} src={imgURL} alt="Unsplash" />
         <div className={classes.overlay}>
           <div className={classes.overlay_info}>
-            <b>{`Price: ${price}$`}</b>
-            <b>{'Upload date: ' + date}</b>
+            <div className={classes.top}>
+              <b>{`Price: ${price}$`}</b>
+              <b>{'Upload date: ' + date}</b>
+            </div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
           </div>
         </div>

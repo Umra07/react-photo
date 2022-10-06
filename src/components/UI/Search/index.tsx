@@ -1,7 +1,10 @@
 import React from 'react';
+import { useState } from 'react';
 import classes from './Search.module.scss';
 
 const Search: React.FC = () => {
+  const [searchValue, setSearchValue] = useState('');
+
   return (
     <div className={classes.search}>
       <div className={classes.searchBlock}>
@@ -17,7 +20,7 @@ const Search: React.FC = () => {
           />
         </svg>
 
-        <input type="text" placeholder="Search for the desired photo..." />
+        <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} type="text" placeholder="Search for the desired photo..." />
       </div>
       <button>Search</button>
     </div>

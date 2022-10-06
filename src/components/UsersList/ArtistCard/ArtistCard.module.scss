@@ -1,11 +1,12 @@
 .card {
   position: relative;
-  max-width: 497px;
-  height: 416px;
+  max-width: 467px;
   padding: 5px 15px 25px;
   background: #D9D9D9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
+  @media (max-width: 900px) {
+    max-width: 100%;
+  }
   
 
     a {
@@ -28,8 +29,15 @@
         color: #fff;
         background: #FF4646;
       }
+
+      @media(max-width: 425px) {
+        bottom: 12px;
+        padding: 0px 10px;
+        font-size: 12px;
+        line-height: 22px;
+      }
     }
- 
+    
 }
 
 .cardTop {
@@ -59,7 +67,7 @@
 
     b {
       font-weight: 700;
-      font-size: 24px;
+      font-size: 20px;
       line-height: 36px;
       letter-spacing: -0.015em;
       color: #675656;
@@ -92,5 +100,43 @@
     color: rgba(74, 53, 53, 0.8);
     margin-bottom: 30px;
     overflow: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .cardTop {
+    margin-bottom: 5px;
+    .avatar {
+      width: 64px;
+      height: 64px;
+    }
+    li {
+      img {
+        width: 13px;
+        height: 13px;
+      }
+      b {
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: -0.015em;
+        color: #675656;
+      }
+    }
+    
+  }
+  .info {
+    h3 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    small {
+      font-size: 9px;
+      line-height: 9px;
+      margin-bottom: 5px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 22px;
+    }
   }
 }
