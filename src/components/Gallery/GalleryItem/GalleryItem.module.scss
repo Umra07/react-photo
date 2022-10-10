@@ -3,6 +3,8 @@
   position: relative;
   width: 100%;
   
+  
+  
   .img {
     display: block;
     object-fit: cover;
@@ -14,6 +16,11 @@
   .img_block {
     &:hover .overlay {
     opacity: 1;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform .25s ease-in-out;
   }
 }
 }

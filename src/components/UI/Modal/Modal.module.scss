@@ -13,8 +13,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 700px;
-    height: 700px;
+    max-width: 70vw;
+    max-height: 80vh;
     object-fit: cover;
   }
   button {
@@ -27,6 +27,32 @@
     svg {
       width: 40px;
       height: 40px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    button {
+      top: 30px;
+      right: 40px;
+    }
+  }
+}
+@media (max-width: 425px) {
+  .modal {
+    button {
+      top: 130px;
+      right: 10px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .modal {
+    button {
+      top: 150px;
+      right: 10px;
     }
   }
 }

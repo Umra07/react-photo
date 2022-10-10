@@ -11,6 +11,7 @@ interface UserProps {
 }
 
 const ArtistCard: React.FC<UserProps> = ({ avatar, bio, name, username, total, link }) => {
+
   return (
     <li className={classes.card}>
       <div className={classes.cardTop}>
@@ -24,10 +25,11 @@ const ArtistCard: React.FC<UserProps> = ({ avatar, bio, name, username, total, l
             <img src="img/photo-icon.svg" alt="Icon of number people" />
             <b>{total}</b>
           </li>
+          {username && 
           <li>
-            <img src="img/facebook.svg" alt="Facebook icon" />
-            <b>{`@${username}`}</b>
-          </li>
+            <img src="img/instagram.svg" alt="Facebook icon" />
+            <a className={classes['profile-link']} href='https://www.instagram.com/$/'>{`@${username}`}</a>
+          </li>}
         </ul>
       </div>
       <div className={classes.info}>
@@ -35,7 +37,7 @@ const ArtistCard: React.FC<UserProps> = ({ avatar, bio, name, username, total, l
         {username && <small>{'@' + username}</small>}
         <p>{bio}</p>
       </div>
-      <a href={link}>Learn more</a>
+      <a className={classes.link} href={link}>Learn more</a>
     </li>
   );
 };

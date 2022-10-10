@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ArtistCard from './ArtistCard';
 import Container from '../UI/Container';
 import GalleryButton from '../UI/GalleryButton';
@@ -14,17 +14,27 @@ const UsersList: React.FC = () => {
 
   const dispatch = useAppDispatch();
 
+  const effectRan = useRef(false);
+
   const { users } = useSelector(selectUsers);
 
-  console.log('render')
-
   useEffect(() => {
-    dispatch(fetchUsers(page))
+    if(effectRan.current === false) {
+      dispatch(fetchUsers(page))
+      if(page === 1) {
+        return () => {
+          effectRan.current = true
+        }
+      }
+    }
+    effectRan.current = false;
   }, [page]);
 
   const loadPhotos = () => {
     setPage((prevPage) => prevPage + 1);
   };
+
+  console.log('render')
 
   return (
     <Container title={'EXPLORE MOST POPULAR UPLOADS'}>
