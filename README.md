@@ -1,5 +1,5 @@
 # 💫 About Me:
-I'm a beginner React developer.  In my project I tried to write an application with Typescript. 
+I'm a beginner React developer.  In my project I tried to write react application with Typescript. In this project I used Unsplash API to build a gallery.
 
 
 # 💻 Tech Stack:
