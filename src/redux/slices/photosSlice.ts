@@ -52,6 +52,10 @@ export const fetchPhotos = createAsyncThunk('fetchPhotos', async (page: number) 
   return loadedPhotos;
 })
 
+
+
+
+
 const photosSlice = createSlice({
   name: 'photos',
   initialState,

@@ -30,13 +30,23 @@
         background: #FF4646;
       }
 
-      @media(max-width: 425px) {
+      @media(max-width: 426px) {
         bottom: 12px;
         padding: 0px 10px;
         font-size: 12px;
         line-height: 22px;
       }
     }
+
+  @media(max-width: 426px) {
+    max-width: 340px;
+  }
+  @media(max-width: 376px) {
+    max-width: 300px;
+  }
+  @media(max-width: 320px) {
+    max-width: 250px;
+  }
     
 }
 
@@ -73,6 +83,9 @@
       line-height: 36px;
       letter-spacing: -0.015em;
       color: #675656;
+      @media(max-width: 321px) {
+        font-size: 11px;
+      }
     }
   }
 }
