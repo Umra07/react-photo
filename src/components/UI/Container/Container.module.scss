@@ -1,27 +1,12 @@
 .container {
-  max-width: 1100px;
+  max-width: 90dvw;
   background-color: #fff;
   margin: 0 auto;
-  padding: 90px 0;
-}
-
-.galleryHeading {
-  color: #675656;
-  font-weight: 700;
-  font-size: 35px;
-  line-height: 39px;
-  text-decoration: underline;
-  text-align: center;
-  margin-bottom: 15px;
-
-  
+  padding: 50px 20px 0;
 }
 
 @media(max-width: 425px) {
   .container {
     padding: 20px 0;
-  }
-  .galleryHeading {
-    font-size: 22px;
   }
 }

@@ -1,17 +1,16 @@
-import React from 'react';
+import { FC } from 'react';
 import classes from './Modal.module.scss';
 
 interface ModalProps {
   photo: string;
   setShowModal: (a: boolean) => void;
-} 
+}
 
-const Modal: React.FC<ModalProps> = ({ photo, setShowModal }) => {
-
+const Modal: FC<ModalProps> = ({ photo, setShowModal }) => {
   const hideModal = () => {
-    setShowModal(false)
-    document.body.style.overflow = 'unset'
-  }
+    setShowModal(false);
+    document.body.style.overflow = 'unset';
+  };
 
   return (
     <div className={classes.modal}>
@@ -21,8 +20,9 @@ const Modal: React.FC<ModalProps> = ({ photo, setShowModal }) => {
           <path d="M16.707,7.293a1,1,0,0,0-1.414,0L12,10.586,8.707,7.293A1,1,0,1,0,7.293,8.707L10.586,12,7.293,15.293a1,1,0,1,0,1.414,1.414L12,13.414l3.293,3.293a1,1,0,0,0,1.414-1.414L13.414,12l3.293-3.293A1,1,0,0,0,16.707,7.293Z" />
         </svg>
       </button>
-      <img src={photo} alt="modal" />
-      <div id="caption"></div>
+      <div className={classes['image-wrapper']}>
+        <img src={photo} alt="modal" />
+      </div>
     </div>
   );
 };

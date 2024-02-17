@@ -1,29 +1,33 @@
-import React from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Main } from './components/Main';
+import { Layout } from './components/Layout/Layout';
+import NotFound from './pages/NotFound';
 import './App.scss';
-import { Route, Routes } from 'react-router-dom';
+import SearchResult from './components/SearchResult';
+import { SkeletonTheme } from 'react-loading-skeleton';
 
-import Header from './components/Header';
-import Search from './components/UI/Search';
-import Home from './pages/Home';
-import SearchResult from './pages/SearchResult';
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: '/',
+        element: <Main />,
+      },
+      {
+        path: 'search',
+        element: <SearchResult />,
+      },
+    ],
+  },
+]);
 
 function App() {
-
-
   return (
-    <div className="App">
-      <Header />
-      <Search />
-      <p className="descr">
-        This site was created for you to manage and find the desired photo uploaded by people at the
-        highest price and lowest price
-      </p>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search-result" element={<SearchResult />} />
-        <Route path="*" element={<h1>Buy</h1>} />
-      </Routes>
-    </div>
+    <SkeletonTheme baseColor="#202020" highlightColor="#444">
+      <RouterProvider router={router} />
+    </SkeletonTheme>
   );
 }
 

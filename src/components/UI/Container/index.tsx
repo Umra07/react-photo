@@ -1,18 +1,12 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import classes from './Container.module.scss';
 
 interface ContainerProps {
-  title: string;
-  children: ReactNode;
+  children: JSX.Element | JSX.Element[];
 }
 
-const Container: React.FC<ContainerProps> = ({ title, children }) => {
-  return (
-    <div className={classes.container}>
-      <h2 className={classes.galleryHeading}>{title}</h2>
-      {children}
-    </div>
-  );
+const Container: React.FC<ContainerProps> = ({ children }) => {
+  return <div className={classes.container}>{children}</div>;
 };
 
 export default Container;

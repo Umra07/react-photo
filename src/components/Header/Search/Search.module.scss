@@ -1,22 +1,15 @@
 .search {
-  margin: 0 auto;
-  margin-bottom: 40px;
+  position: relative;
   background: #fff;
+  border: 1px solid #FF4646;
   max-width: 360px;
-  border-radius: 18px;
+  border-radius: 25px;
   display: flex;
   align-items: center;
-  button {
-    padding: 12px 15px;
-    cursor: pointer;
-    border-radius: 5px 18.5px 18.5px 5px;
-    border: 1px solid #fff;
-    background: #FF4646;
-    color: #fff;
-    transition: all .2s ease-in-out;
-    &:hover {
-      background: #d83c3c;
-    }
+  
+  form {
+    display: flex;
+    align-items: center;
   }
 
   @media (max-width: 375px) {
@@ -25,21 +18,18 @@
   }
 }
 
-.searchBlock {
-  display: flex;
-  align-items: center;
-  height: inherit;
-  svg {
+  .svg {
     margin: 12px;
     transform: translateY(-1px);
   }
-  input {
+  .input {
     font-size: 13px;
     font-weight: 400;
     color: #4a4a44;
     padding: 10px 0 12px;
     width: 250px;
     border: none;
+    border-radius: 0 25px 25px 0;
     &:focus {
       outline: none;
     }
@@ -50,4 +40,23 @@
       width: 180px;
     }
   }
+
+.delete {
+  margin-inline: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  animation: revealing .25s ease-in-out;
 }
+
+@keyframes revealing {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+

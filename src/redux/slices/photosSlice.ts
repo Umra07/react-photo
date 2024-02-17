@@ -1,68 +1,30 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import axios from "axios"
-import { RootState } from "../store";
+import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../store';
+import { fetchPhotos, searchPhotos } from '../async';
+import { InitialStateType, Status } from '../types';
 
-interface Photo {
-  id: number;
-  name: string;
-  imgURL: string;
-  likes: number;
-  date: string;
-  avatar: string;
-  username: string;
-  bio: string;
-  total: number;
-}
-
-export enum Status {
-  LOADING = 'loading',
-  SUCCESS = 'success',
-  ERROR = 'error'
-}
-
-interface PhotosSliceState {
-  photos: Photo[];
-  status: Status;
-}
-
-const initialState: PhotosSliceState = {
+const initialState: InitialStateType = {
   photos: [],
+  page: 1,
   status: Status.LOADING,
-}
-
-export const fetchPhotos = createAsyncThunk('fetchPhotos', async (page: number) => {
-  const { data } = await axios.get(`https://api.unsplash.com/photos/?page=${page}&per_page=6&client_id=STdsYhvvu_8oWLgrHOodAi_0-Dnb0vW-wVcdLMU1l4U`);
-
-  const loadedPhotos: Photo[] = []
-
-  for(const key in data) {
-    loadedPhotos.push({
-      id: data[key].id,
-      name: data[key].user.first_name + (data[key].user.last__name ? ` ${data[key].user.last__name}` : ''),
-      imgURL: data[key].urls.regular,
-      likes: data[key].likes,
-      date: data[key].created_at.slice(0, 10),
-      avatar: data[key].user.profile_image.large,
-      username: data[key].user.instagram_username ? data[key].user.instagram_username : '',
-      bio: data[key].user.bio,
-      total: data[key].user.total_photos
-    })
-  }
-
-  return loadedPhotos;
-})
-
-
-
-
+  searchQuery: '',
+  searchResult: {
+    total: 0,
+    total_pages: 0,
+    results: [],
+  },
+};
 
 const photosSlice = createSlice({
   name: 'photos',
   initialState,
   reducers: {
-    findPhoto(state, action) {
-      
-    }
+    searchQuerySetted(state, action) {
+      state.searchQuery = action.payload;
+    },
+    pageChanged(state, action) {
+      state.page = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -77,10 +39,31 @@ const photosSlice = createSlice({
         state.status = Status.ERROR;
         state.photos = [];
       })
-  }
-})
+      .addCase(searchPhotos.pending, (state) => {
+        state.status = Status.LOADING;
+        state.photos = [];
+      })
+      .addCase(searchPhotos.fulfilled, (state, action) => {
+        state.status = Status.SUCCESS;
+        if (state.page > 1) {
+          state.searchResult.results = [...state.searchResult.results, ...action.payload.results];
+        } else {
+          state.searchResult = action.payload;
+        }
+      })
+      .addCase(searchPhotos.rejected, (state) => {
+        state.status = Status.ERROR;
+        state.photos = [];
+      });
+  },
+});
 
 export const selectPhotos = (state: RootState) => state.photos.photos;
-export const selectStatus = (state: RootState) => state.photos.status;
+export const selectSearchQuery = (state: RootState) => state.photos.searchQuery;
+export const selectSearchResult = (state: RootState) => state.photos.searchResult;
+export const selectLoadingStatus = (state: RootState) => state.photos.status;
+export const selectPage = (state: RootState) => state.photos.page;
 
-export default photosSlice.reducer
+export const { searchQuerySetted, pageChanged } = photosSlice.actions;
+
+export default photosSlice.reducer;

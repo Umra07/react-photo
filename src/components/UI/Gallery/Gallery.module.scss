@@ -1,0 +1,28 @@
+.galleryList {
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 50px;
+
+  @media (max-width: 1140px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 450px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.observer {
+  display: grid;
+  place-items: center;
+  padding-block: 20px;
+  background-color: #fff;
+
+  p {
+    font-weight: 700;
+    color: #fff;
+  }
+}
